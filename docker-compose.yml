@@ -1,0 +1,39 @@
+version: "3"
+services:
+  erangel:
+    build: erangel/
+    ports:
+      - "8088:80"
+    volumes:
+      - "erangel-vol"
+    networks:
+      - "erangel-network"
+
+  sanhok:
+    build: sanhok/
+    ports:
+      - "8089:80"
+    volumes:
+      - "sanhok-vol"
+    networks:
+      - "sanhok-network"
+
+  vikendi:
+    build: vikendi/
+    ports:
+      - "8010:80"
+    volumes:
+      - "vikendi-vol"
+    networks:
+      - "vikendi-network"
+
+networks:
+  erangel-network:
+    driver: bridge
+
+  sanhok-network:
+    driver: bridge
+
+  vikendi-network:
+    driver: bridge    
+
